@@ -1,27 +1,29 @@
-# AngularTourOfHeroes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+# Hackton - Obywatele
 
-## Development server
+Praca konkursowa na HACK HEROES - KONKURS PROGRAMISTYCZNY
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![Logo](https://hackheroes.pl/img/rsz_hackheroes_logo.png)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## O co chodzi w kokursie?
+Ogólnopolski Konkurs Programistyczny Hack Heroes dla uczniów szkół średnich to wspólna inicjatywa Fundacji Media 3.0 i SAP SE, realizowana od 2016 i wpisująca się w coroczne obchody Europejskiego Tygodnia Kodowania . W tym roku do grona partnerów dołączyła firma HP Inc Polska. To jedyny tego typu konkurs w obszarze programowania skierowany do uczniów szkół ponadgimnazjalnych, którego celem jest promocja nauki programowania oraz rozwój talentów programistycznych wśród osób młodych. Co ważne, każda edycja konkursu ma temat przewodni, dzięki któremu powstają aplikacje realizujące cele społeczne. Wśród dotychczasowych tematów były m.in. zdrowie i edukacja.
 
-## Build
+### Tegoroczny temat edycji
+**OBYWATELE**
+## Tech Stack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Client:** Angular, CSS
 
-## Running unit tests
+**Server:** Node
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Licencja
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+[MIT](https://choosealicense.com/licenses/mit/)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Autorzy
+
+- [@loudsheep](https://www.github.com/loudsheep)
+- Wpiszcie sie tu !!!
