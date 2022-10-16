@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { BookRepository } from './book.repository.service';
 import { TestComponent } from './test/test.component';
 import { StaticDataSource } from './static.datasource.service';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
+    TestComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
