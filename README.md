@@ -36,4 +36,5 @@ Ogólnopolski Konkurs Programistyczny Hack Heroes dla uczniów szkół średnich
 - [@trol98](https://www.github.com/trol98/)
 - [@bartixx3021](https://www.github.com/bartixx3021/)
 - [@Mathii13](https://github.com/Mathii13)
+- [@PanMikolaj](https://github.com/PanMikolaj)
 - Wpiszcie sie tu !!!
