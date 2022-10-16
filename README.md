@@ -13,6 +13,13 @@ Ogólnopolski Konkurs Programistyczny Hack Heroes dla uczniów szkół średnich
 **OBYWATELE**
 ## Tech Stack
 
+## Getting started
+1. `git clone https://github.com/loudsheep/obywatele-hackaton`
+2. `cd obywatele-hackaton`
+3. `npm install`
+4. `npm start`
+5. `http://localhost:4200/`
+
 **Client:** Angular, CSS
 
 **Server:** Node
@@ -26,4 +33,5 @@ Ogólnopolski Konkurs Programistyczny Hack Heroes dla uczniów szkół średnich
 ## Autorzy
 
 - [@loudsheep](https://www.github.com/loudsheep)
+- [@trol98](https://www.github.com/trol98/)
 - Wpiszcie sie tu !!!
