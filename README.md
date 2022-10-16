@@ -14,6 +14,7 @@ Ogólnopolski Konkurs Programistyczny Hack Heroes dla uczniów szkół średnich
 
 ## Tech Stack
 **Client:** Angular, CSS
+
 **Server:** Node
 
 ## Getting started
