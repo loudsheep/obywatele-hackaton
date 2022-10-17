@@ -1,1 +1,10 @@
 <p>cart works!</p>
+
+<!-- for out beloved frontenders -->
+<!-- booksInCart - array z ksiazkami -->
+<!-- cartEmpty - czy koszyk jest pusty -->
+<!-- deleteFromCart(id) - usuwa z cart -->
+<!-- good luck :( -->
+
+<p *ngFor="let book of booksInCart">{{book.name}}</p>
+<p *ngIf="cartEmpty">Cart is Empty</p>
