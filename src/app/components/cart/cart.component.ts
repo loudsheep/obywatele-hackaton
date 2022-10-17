@@ -15,13 +15,12 @@ export class CartComponent implements OnInit {
   constructor(private repo: BookRepository) { }
 
   ngOnInit(): void {
-    this.loadCart();
+    this.loadCartFromLocalStorage();
   }
 
   // localstorage holds book.id array
-  public loadCart() {
+  public loadCartFromLocalStorage() {
     if (localStorage.getItem('cart')) { // yay, localstorage has some items, maybe
-      console.log(localStorage.getItem('cart'));
       let data = JSON.parse(localStorage.getItem('cart') ?? '[]');
 
       if (data.length == 0) {
@@ -39,7 +38,7 @@ export class CartComponent implements OnInit {
     }
   }
 
-  public saveCart() {
+  public saveCartToLocalStorage() {
     let idArray = this.booksInCart.map(x => x.id);
     console.log(JSON.stringify(idArray));
     try {
@@ -56,7 +55,16 @@ export class CartComponent implements OnInit {
       this.booksInCart.splice(idx, 1);
     }
 
-    this.saveCart();
+    this.saveCartToLocalStorage();
+  }
+
+  // ! call this is other components to get item count !
+  public static getCartItemCount(): number {
+    if (localStorage.getItem('cart')) { // yay, localstorage has some items, maybe
+      let data = JSON.parse(localStorage.getItem('cart') ?? '[]');
+      return data.length;
+    }
+    return 0;
   }
 
 }
