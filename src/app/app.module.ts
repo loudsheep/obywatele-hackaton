@@ -8,19 +8,22 @@ import { TestComponent } from './test/test.component';
 import { StaticDataSource } from './services/static.datasource.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CartComponent } from './components/cart/cart.component';
+import { BookInfoComponent } from './components/book-info/book-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     PageNotFoundComponent,
-    CartComponent
+    CartComponent,
+    BookInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
   ],
   providers: [BookRepository, StaticDataSource],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [AppRoutingModule]
 })
 export class AppModule { }
