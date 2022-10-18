@@ -14,12 +14,16 @@ export class BookInfoComponent implements OnInit {
 
   bookId: number = -1;
   book: Book | any;
+
+
   ngOnInit(): void {
+    
+    // NOTE: supply parameters in URL in form of www.domain.com/route/param1/param2 etc.
+    // doesn't work with old fashion GET parameters like ?param1=&param2=
     this.route.paramMap.subscribe(paramMap => {
       this.bookId = Number(paramMap.get('id')) ?? -1;
     });
 
-    console.log(this.bookId);
 
     let search = this.repo.getBook(this.bookId);
     if (search) {

@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/services/book';
 import { BookRepository } from 'src/app/services/book.repository.service';
@@ -20,22 +19,21 @@ export class CartComponent implements OnInit {
 
   // localstorage holds book.id array
   public loadCartFromLocalStorage() {
-    if (localStorage.getItem('cart')) { // yay, localstorage has some items, maybe
-      let data = JSON.parse(localStorage.getItem('cart') ?? '[]');
+    // yay, localstorage has some items, maybe
+    let data = JSON.parse(localStorage.getItem('cart') ?? '[]');
 
-      if (data.length == 0) {
-        this.cartEmpty = true;
-        return;
-      }
-
-      for (let i = 0; i < data.length; i++) {
-        let book = this.repo.getBook(data[i]);
-        if (book) {
-          this.booksInCart.push(book);
-        }
-      }
-      this.cartEmpty = false;
+    if (data.length == 0) {
+      this.cartEmpty = true;
+      return;
     }
+
+    for (let i = 0; i < data.length; i++) {
+      let book = this.repo.getBook(data[i]);
+      if (book) {
+        this.booksInCart.push(book);
+      }
+    }
+    this.cartEmpty = false;
   }
 
   public saveCartToLocalStorage() {
@@ -58,7 +56,7 @@ export class CartComponent implements OnInit {
     this.saveCartToLocalStorage();
   }
 
-  // ! call this is other components to get item count !
+  // ! call this in other components to get item count !
   public static getCartItemCount(): number {
     if (localStorage.getItem('cart')) { // yay, localstorage has some items, maybe
       let data = JSON.parse(localStorage.getItem('cart') ?? '[]');
