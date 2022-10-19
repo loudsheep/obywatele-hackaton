@@ -9,6 +9,8 @@ import { StaticDataSource } from './services/static.datasource.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CartComponent } from './components/cart/cart.component';
 import { BookInfoComponent } from './components/book-info/book-info.component';
+import { HomeComponent } from './components/home/home.component';
+import { BrowseComponent } from './components/browse/browse.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { BookInfoComponent } from './components/book-info/book-info.component';
     TestComponent,
     PageNotFoundComponent,
     CartComponent,
-    BookInfoComponent
+    BookInfoComponent,
+    HomeComponent,
+    BrowseComponent
   ],
   imports: [
     BrowserModule,

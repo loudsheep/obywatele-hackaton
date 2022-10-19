@@ -8,6 +8,43 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+  <header class="header">
+
+    <section class="u_header">
+      <a href="/home" class="logo_img pointer"><img src="assets/logo.png" alt="logo strony" class="pointer"></a>
+      
+      <form action="/search" class="search_container">
+        <input type="text" name="book" id="search_inp" class="in_search pointer" placeholder="wyszukaj książke...">
+        <button class="btn_search pointer">Szukaj<img src="assets/szukaj-ik.svg" alt="" class="pointer"></button>
+      </form>
+
+      <div class="icons_container">
+        <a href="/cart"><img src="assets/koszyk-ik.svg" alt="" class="pointer"><p class="iko_desc">Konto</p></a>
+        <a href="#"><img src="assets/konto-ik.svg" alt="" class="pointer"><p class="iko_desc">Konto </p></a>
+      </div>
+    </section>
+
+
+    <nav class="navbar">
+
+      <a href="/home" class="selected pointer">Główna</a>
+
+      <a id="gatunki" class="pointer test">Gatunki <img src="assets/strzalka-dol-ik.svg" alt="" class="cos">
+      <ul>
+        <li class="pointer">test1</li>
+        <li class="pointer">test2</li>
+        <li class="pointer">test3</li>
+        <li class="pointer">test4</li>
+        <li class="pointer">test5</li>
+      </ul>
+      </a>
+
+      <a href="/okazje" class="pointer">Okazje</a>
+
+      <a href="/bazarek" class="pointer">Bazarek</a>
+    </nav>
+
+  </header>
+  <app-root id="test"></app-root>
 </body>
 </html>

@@ -1,0 +1,136 @@
+<main class="main">
+    <section class="wrapper">
+
+        <div class="filtr_box">
+            <h2 class="f_pad f_p_f">Filtry</h2>
+            <div class="filtry_container">
+
+                <p class="f_pad p_cena">cena</p>
+                <div class="f_cena f_pad">
+                    <input type="number" placeholder="min">
+                    <p>-</p>
+                    <input type="number" placeholder="max">
+                </div>
+
+                <hr>
+                
+                <p class="f_pad">gatunek</p>
+                <div class="f_g_container">
+                    <div class="f_gatunek f_pad">
+                        <input type="checkbox">
+                        <p>gatunek 1</p>
+                    </div>
+
+                    <div class="f_gatunek f_pad">
+                        <input type="checkbox">
+                        <p>gatunek 1</p>
+                    </div>
+
+                    <div class="f_gatunek f_pad">
+                        <input type="checkbox">
+                        <p>gatunek 1</p>
+                    </div>
+
+                    <div class="f_gatunek f_pad">
+                        <input type="checkbox">
+                        <p>gatunek 1</p>
+                    </div>
+
+                    <div class="f_gatunek f_pad">
+                        <input type="checkbox">
+                        <p>gatunek 1</p>
+                    </div>
+
+                    <div class="f_gatunek f_pad">
+                        <input type="checkbox">
+                        <p>gatunek 1</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <p class="f_pad">Przecenione</p>
+                <div class="f_przec f_pad">
+                    <input type="checkbox">
+                    <p>Tak</p>
+                </div>
+
+                <hr>
+
+                <p class="f_pad">Bestsellery</p>
+                <div class="f_pad f_best">
+                    <input type="checkbox">
+                    <p>Tak</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="result_box">
+            <h2>Wyniki</h2>
+            <section class="card_container">
+
+
+                <div class="card" *ngFor="let k of found">
+                    <div class="card_img">
+                        <img src="{{k.imgPath}}" alt="ksionszka">
+                    </div>
+
+                    <div class="c_additional">
+                        <div class="bestseller" *ngIf="k.isBestseller">
+                            <p>Bestseller!</p>
+                        </div>
+                        <div class="discount" *ngIf="k.discount!=0">
+                            <p>-{{k.discount*100}}%</p>
+                        </div>
+                    </div>
+                    <div class="c_info">
+                        <p class="c_title">{{k.name}}</p>
+                        <p class="c_credit">{{k.author}}</p>
+                    </div>
+                    <div class="c_ceny" *ngIf="k.discount!=0">
+                        <p class="price">{{(k.price-k.price*k.discount).toFixed(2)}}</p>
+                        <p class="old_discounted">{{k.price}}</p>
+                    </div>
+                    <div class="c_ceny" *ngIf="k.discount==0">
+                        <p class="price">{{(k.price-k.price*k.discount).toFixed(2)}}</p>
+                        <p class="old_discounted">{{k.price}}</p>
+                    </div>
+                    <div class="c_btn_container">
+                        <button>Do koszyka</button>
+                    </div>
+
+                </div>
+   
+                <!-- <div class="card">
+                    <div class="card_img">
+                        <img src="/assets/ksionszki/book.svg" alt="ksionszka">
+                    </div>
+
+                    <div class="c_additional">
+                        <div class="bestseller">
+                            <p>Bestseller!</p>
+                        </div>
+                        <div class="discount">
+                            <p>-19%</p>
+                        </div>
+                    </div>
+                    <div class="c_info">
+                        <p class="c_title">Tytuł tytuł tytuł tytuł tytuł </p>
+                        <p class="c_credit">Autor autor autor</p>
+                    </div>
+                    <div class="c_ceny">
+                        <p class="price">56,45 zł</p>
+                        <p class="old_discounted">69,69 zł</p>
+                    </div>
+                    <div class="c_btn_container">
+                        <button>Do koszyka</button>
+                    </div>
+
+                </div> -->
+            </section>
+        </div>
+    </section>
+</main>
