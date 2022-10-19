@@ -24,7 +24,6 @@ export class BookInfoComponent implements OnInit {
       this.bookId = Number(paramMap.get('id')) ?? -1;
     });
 
-
     let search = this.repo.getBook(this.bookId);
     if (search) {
       this.book = search;

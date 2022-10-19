@@ -9,6 +9,7 @@ import { StaticDataSource } from './services/static.datasource.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CartComponent } from './components/cart/cart.component';
 import { BookInfoComponent } from './components/book-info/book-info.component';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { BookInfoComponent } from './components/book-info/book-info.component';
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [BookRepository, StaticDataSource],
+  providers: [BookRepository, StaticDataSource, CartService],
   bootstrap: [AppComponent],
   exports: [AppRoutingModule]
 })
