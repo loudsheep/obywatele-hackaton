@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap%27");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body,
+html {
+  overflow: hidden;
+  height: 87vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.txt-r,
+.txt-l {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 70%;
+}
+.txt-r {
+  text-align: right;
+  right: 10%;
+}
+.txt-l {
+  text-align: left;
+  left: 10%;
+}
+h1,
+h2,
+h3 {
+  color: black;
+  font-family: "Poppins";
+  margin: 0;
+}
+h1 {
+  font-size: 3.5vw;
+  font-weight: 500;
+}
+h2 {
+  font-size: 1.8vw;
+  font-weight: bolder;
+  margin-bottom: 4%;
+}
+h3 {
+  font-size: 2.3vw;
+  font-weight: lighter;
+}
+.bcg2-div {
+  background: url("/assets/img/bcg2.jpg");
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.bcg1-div {
+  background: url("/assets/img/bcg1.jpg");
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.btn {
+  border: none;
+  border-radius: 0.5em;
+  background-color: #ffcb35;
+  font-weight: bold;
+  font-family: "Poppins";
+  transition: background-color 0.3s ease;
+  font-size: 1vw;
+  padding: 0.2vw 0.9vw;
+  margin-top: 4%;
+}
+.btn:hover {
+  background-color: #e19c2f;
+}
+
+input {
+  display: none;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.book {
+  display: flex;
+  bottom: 0;
+}
+#cover {
+  width: 50vw;
+  height: 100vh;
+  background-size: cover;
+}
+
+.flip-book {
+  width: 50vw;
+  height: 100vh;
+  position: relative;
+  perspective: 2500px;
+}
+.flip {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: 1s;
+}
+p {
+  font-size: 14px;
+  line-height: 24px;
+}
+.front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 0 13px;
+  box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5) 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+.next-btn {
+  color: black;
+  position: absolute;
+  bottom: 13px;
+  right: 13px;
+  cursor: pointer;
+}
+
+#c1:checked ~ .flip-book #p1 {
+  transform: rotateY(-180deg);
+}
+
+#c2:checked ~ .flip-book #p2 {
+  transform: rotateY(-180deg);
+}
+#c3:checked ~ .flip-book #p3 {
+  transform: rotateY(-180deg);
+}
