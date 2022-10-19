@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookRepository } from './services/book.repository.service';
@@ -11,7 +10,10 @@ import { CartComponent } from './components/cart/cart.component';
 import { BookInfoComponent } from './components/book-info/book-info.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowseComponent } from './components/browse/browse.component';
-
+import { CartService } from './services/cart.service';
+import { FlipbookComponent } from './components/flipbook/flipbook.component';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,15 +21,14 @@ import { BrowseComponent } from './components/browse/browse.component';
     PageNotFoundComponent,
     CartComponent,
     BookInfoComponent,
+    FlipbookComponent,
+    LoginComponent,,
     HomeComponent,
     BrowseComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-  ],
-  providers: [BookRepository, StaticDataSource],
+  providers: [BookRepository, StaticDataSource, CartService],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   bootstrap: [AppComponent],
-  exports: [AppRoutingModule]
+  exports: [AppRoutingModule],
 })
-export class AppModule { }
+export class AppModule {}

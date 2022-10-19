@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/services/book';
 import { BookRepository } from 'src/app/services/book.repository.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,58 +12,31 @@ export class CartComponent implements OnInit {
 
   booksInCart: Book[] = [];
   cartEmpty: boolean = true;
-  constructor(private repo: BookRepository) { }
+  constructor(private repo: BookRepository, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.loadCartFromLocalStorage();
+    this.loadBooks();
   }
 
   // localstorage holds book.id array
-  public loadCartFromLocalStorage() {
-    // yay, localstorage has some items, maybe
-    let data = JSON.parse(localStorage.getItem('cart') ?? '[]');
+  public loadBooks() {
+    let bookIDs: number[] = this.cartService.getBookIDs();
 
-    if (data.length == 0) {
+    if (this.cartService.isEmpty()) {
       this.cartEmpty = true;
       return;
     }
 
-    for (let i = 0; i < data.length; i++) {
-      let book = this.repo.getBook(data[i]);
+    bookIDs.forEach(ID => {
+      let book = this.repo.getBook(ID);
       if (book) {
         this.booksInCart.push(book);
       }
-    }
+    });
     this.cartEmpty = false;
   }
 
-  public saveCartToLocalStorage() {
-    let idArray = this.booksInCart.map(x => x.id);
-    console.log(JSON.stringify(idArray));
-    try {
-      localStorage.setItem('cart', JSON.stringify(idArray));
-    } catch (e) {
-      // sometimes throws QuotaExceededError
-      console.log(e);
-    }
-  }
-
   public deleteFromCart(bookId: number) {
-    let idx = this.booksInCart.findIndex(x => x.id == bookId);
-    if (idx >= 0) {
-      this.booksInCart.splice(idx, 1);
-    }
-
-    this.saveCartToLocalStorage();
+    this.cartService.deleteFromCart(bookId);
   }
-
-  // ! call this in other components to get item count !
-  public static getCartItemCount(): number {
-    if (localStorage.getItem('cart')) { // yay, localstorage has some items, maybe
-      let data = JSON.parse(localStorage.getItem('cart') ?? '[]');
-      return data.length;
-    }
-    return 0;
-  }
-
 }

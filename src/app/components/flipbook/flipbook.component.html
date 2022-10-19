@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      class="book"
+      (click)="onClicked($event)"
+      (wheel)="onMouseWheel($event)"
+    >
+      <input type="checkbox" id="c1" [(ngModel)]="pTab[0]" />
+      <input type="checkbox" id="c2" [(ngModel)]="pTab[1]" />
+      <input type="checkbox" id="c3" [(ngModel)]="pTab[2]" />
+      <input type="checkbox" id="c4" [(ngModel)]="pTab[3]" />
+      <div id="cover">
+        <div class="bcg1-div">
+          <div class="txt-l">
+            <h1>Okazje!</h1>
+            <h3>Przeceny na twoje ulubione książki nawet do 30%!</h3>
+            <button class="btn">SPRAWDŹ</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-book">
+        <div class="flip" id="p1" [ngStyle]="{ 'z-index': zTab[0] }">
+          <div class="back bcg1-div">
+            <img src="/assets/img/piggy.svg" />
+          </div>
+          <div class="front bcg2-div">
+            <img src="/assets/img/mainBooks.svg" />
+          </div>
+        </div>
+
+        <div class="flip" id="p2" [ngStyle]="{ 'z-index': zTab[1] }">
+          <div class="back bcg1-div">
+            <div class="txt-l">
+              <h1>KLUCZ DO POTĘGI?</h1>
+              <h2>Wiedza!</h2>
+              <h3>
+                Poznaj nasze specjalne oferty na książki edukacyjne i otwórz
+                własne drzwi prowadzące do potęgi!
+              </h3>
+            </div>
+          </div>
+          <div class="front bcg2-div">
+            <div class="txt-r">
+              <h1>PUSTA SKRZYNKA?</h1>
+              <h2>Zamów sobie książkę!</h2>
+              <h3>
+                Skorzystaj z bazaru książek używanych aby zaoszczędzić pieniądze
+                i dać książce drugie życie!
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip" id="p3" [ngStyle]="{ 'z-index': zTab[2] }">
+          <div class="back bcg1-div">
+            <img style="transform: rotate(-5deg)" src="/assets/img/win.svg" />
+          </div>
+          <div class="front bcg2-div">
+            <img src="/assets/img/knowladgeKey.svg" />
+          </div>
+        </div>
+
+        <div class="flip" id="p4" [ngStyle]="{ 'z-index': zTab[3] }">
+          <div class="front bcg2-div">
+            <div class="txt-r">
+              <h1>Najlepsze z najlepszych.</h1>
+              <h2>Bestsellery</h2>
+              <h3>
+                Nie zapomnij sprawdzić najpopularniejszych książek - nie możesz
+                ich przegapić!
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

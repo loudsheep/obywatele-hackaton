@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartComponent } from './components/cart/cart.component';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,10 @@ import { CartComponent } from './components/cart/cart.component';
 export class AppComponent implements OnInit {
   title = 'obywatele-hackaton';
 
+  constructor(private cartService: CartService){}
+
   cartItemCount: number = 0;
   ngOnInit(): void {
-    this.cartItemCount = CartComponent.getCartItemCount();
+    this.cartItemCount = this.cartService.cartLength();
   }
 }
