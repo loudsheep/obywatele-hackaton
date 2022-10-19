@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookRepository } from './services/book.repository.service';
@@ -10,21 +9,22 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { CartComponent } from './components/cart/cart.component';
 import { BookInfoComponent } from './components/book-info/book-info.component';
 import { CartService } from './services/cart.service';
-
+import { FlipbookComponent } from './components/flipbook/flipbook.component';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     PageNotFoundComponent,
     CartComponent,
-    BookInfoComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
+    BookInfoComponent,
+    FlipbookComponent,
+    LoginComponent,
   ],
   providers: [BookRepository, StaticDataSource, CartService],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   bootstrap: [AppComponent],
-  exports: [AppRoutingModule]
+  exports: [AppRoutingModule],
 })
-export class AppModule { }
+export class AppModule {}
