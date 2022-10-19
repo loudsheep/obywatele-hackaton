@@ -22,7 +22,7 @@ import { LoginComponent } from './components/login/login.component';
     CartComponent,
     BookInfoComponent,
     FlipbookComponent,
-    LoginComponent,,
+    LoginComponent,
     HomeComponent,
     BrowseComponent
   ],

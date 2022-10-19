@@ -6,12 +6,13 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { TestComponent } from './test/test.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowseComponent } from './components/browse/browse.component';
+import { FlipbookComponent } from './components/flipbook/flipbook.component';
 
 const routes: Routes = [
   { path: "book/:id", component: BookInfoComponent },
   { path: "test", component: TestComponent },
   { path: "cart", component: CartComponent },
-  { path: "home", component: HomeComponent },
+  { path: "home", component: FlipbookComponent },
   { path: "search", component: BrowseComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "notfound", component: PageNotFoundComponent },
