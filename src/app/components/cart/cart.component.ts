@@ -18,6 +18,8 @@ export class CartComponent implements OnInit {
       description: 'Podręcznik javy',
       price: 54.99,
       imgPath: ['/assets/ksionszki/book.svg'],
+      author: 'fdjksa',
+      discount: 12,
     },
     {
       id: 1,
@@ -26,6 +28,8 @@ export class CartComponent implements OnInit {
       description: 'Podręcznik C++',
       price: 44.99,
       imgPath: ['/assets/ksionszki/book.svg'],
+      author: 'marcin świerta',
+      discount: 0,
     },
   ];
 
