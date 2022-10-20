@@ -3,14 +3,13 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CartService {
 
-  private cartEmpty: boolean = true;
   private cartBookID: number[] = [];
 
-  constructor() { 
+  constructor() {
     this.loadCartFromLocalStorage();
   }
 
-  public getBookIDs(): number[]{
+  public getBookIDs(): number[] {
     return this.cartBookID;
   }
 
@@ -18,8 +17,14 @@ export class CartService {
     return this.cartBookID.length == 0;
   }
 
-  public cartLength(): number{
+  public cartLength(): number {
     return this.cartBookID.length;
+  }
+
+  // TODO: Check if book exists, then add
+  public addToCart(bookID: number) {
+    this.cartBookID.push(bookID);
+    this.saveCartToLocalStorage();
   }
 
   public deleteFromCart(bookID: number) {
@@ -29,22 +34,18 @@ export class CartService {
     }
     this.saveCartToLocalStorage();
   }
-  
+
   private loadCartFromLocalStorage() {
     // yay, localstorage has some items, maybe
     this.cartBookID = JSON.parse(localStorage.getItem('cart') ?? '[]');
-    
+
     if (this.cartBookID.length == 0) {
-      this.cartEmpty = true;
       return;
     }
-    this.cartEmpty = false;
-
   }
-  
+
   private saveCartToLocalStorage() {
     let json = JSON.stringify(this.cartBookID);
-    console.log(json);
     try {
       localStorage.setItem('cart', json);
     } catch (e) {
@@ -52,8 +53,4 @@ export class CartService {
       console.log(e);
     }
   }
-
-  // TODO: Add a method for adding books
-  // Use case scenario: in main place for browsing books 
-
 }
