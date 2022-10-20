@@ -15,7 +15,7 @@ html {
 
 main {
   width: 100vw;
-  height: 100vh;
+  height: 87vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,16 +119,9 @@ main {
   cursor: pointer;
 }
 
-@media only screen and (min-width: 1440px) {
-  .pojemnik {
-    max-width: 60rem;
-    height: 55%;
-  }
-}
-
 .container {
   overflow: hidden;
-  height: 100vh;
+  height: 87vh;
   background-color: #fff9e7;
 }
 
@@ -146,5 +139,17 @@ main {
   }
   100% {
     transform: translate3d(-950px, -859px, 0);
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .pojemnik {
+    max-width: 60rem;
+    height: 55%;
+  }
+}
+@media only screen and (max-width: 1700px) {
+  .container {
+    height: 85vh;
   }
 }
