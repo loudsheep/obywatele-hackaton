@@ -1,10 +1,60 @@
-<p>cart works!</p>
-
 <!-- for our beloved frontenders -->
 <!-- booksInCart - array z ksiazkami -->
 <!-- cartEmpty - czy koszyk jest pusty -->
 <!-- deleteFromCart(id) - usuwa z cart -->
 <!-- good luck :( -->
 
-<p *ngFor="let book of booksInCart">{{ book.name }}</p>
-<p *ngIf="cartEmpty">Cart is Empty</p>
+<!-- <p *ngFor="let book of booksInCart">{{ book.name }}</p>
+<p *ngIf="cartEmpty">Cart is Empty</p> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="all">
+      <div class="cart-title">
+        <h2>Twój Koszyk</h2>
+      </div>
+      <div class="rest">
+        <section class="card_container">
+          <div class="card" *ngFor="let k of tempBooks">
+            <div class="card_img">
+              <img src="{{ k.imgPath }}" alt="ksionszka" />
+            </div>
+            <div class="card_info">
+              <div class="c_info">
+                <p class="c_title">{{ k.name }}</p>
+                <p class="c_credit"><strong>Autor: </strong> {{ k.author }}</p>
+                <p class="c_credit">
+                  <strong>Gatunek: </strong>{{ k.description }}
+                </p>
+              </div>
+              <div class="all_ceny">
+                <div class="c_ceny" *ngIf="k.discount != 0">
+                  <p class="price">
+                    {{ (k.price - k.price * k.discount).toFixed(2) }}
+                  </p>
+                  <p class="old_discounted">{{ k.price }}</p>
+                </div>
+                <div class="c_ceny" *ngIf="k.discount == 0">
+                  <p class="price">
+                    {{ (k.price - k.price * k.discount).toFixed(2) }} zł
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="checkout">
+          <h1>Wartość koszyka</h1>
+          <h3>Do zapłaty: {{ priceAll }}</h3>
+          <button>CLICK</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

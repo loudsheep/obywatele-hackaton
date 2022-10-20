@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.all {
+  display: block;
+}
+.rest {
+  display: flex;
+}
+.checkout {
+  flex: 3;
+}
+.result-box {
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+}
+.cart-title h2 {
+  font-size: large;
+  padding: 1.2vh 0 0 1vw; /* <------------------ zmienić tak jest filtr */
+  margin-left: 10%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.card_container {
+  flex: 8;
+  display: flex;
+  padding-left: 15%;
+  height: 60%;
+  width: 80vw;
+  flex-direction: column;
+}
+
+.card {
+  /* background-color: brown; */
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin: 0;
+}
+
+.card_img {
+  height: 100%;
+  text-align: left;
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_info {
+  height: 100%;
+  text-align: left;
+  width: 70%;
+  word-wrap: break-word;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  right: 0;
+}
+.c_info {
+  max-width: 50%;
+}
+.all_ceny {
+  width: 100%;
+  position: absolute;
+  bottom: 10%;
+}
+.card_img img {
+  height: 100%;
+}
+
+.discount {
+  background-color: var(--background-color);
+  font-weight: bold;
+  padding: 0 0.3vw;
+  border-radius: 0.2vw;
+}
+
+.c_info {
+  margin-top: 2vh;
+  width: 100%;
+  font-size: small;
+}
+
+.c_title {
+  width: 100%;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.c_credit {
+  margin-top: 1.2vh;
+  width: 100%;
+  font-size: medium;
+  font-weight: bold;
+  color: rgb(0, 0, 0, 70%);
+}
+
+.c_ceny {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.old_discounted {
+  font-size: 0.8vw;
+  color: rgb(0, 0, 0, 70%);
+  text-decoration: line-through rgb(0, 0, 0, 70%);
+  margin-left: 0.5vw;
+}
+
+.price {
+  color: var(--background-color);
+  font-weight: bold;
+}
+
+/* @media only screen and (max-width: 991px) {
+  .card {
+    display: block;
+  }
+  .card_info {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+  }
+  .rest {
+    display: block;
+  }
+  .card_container {
+    padding: auto;
+  }
+} */
