@@ -15,7 +15,7 @@ html{
 }
 .main{
     height: 87vh;
-    width: 100vw;
+    max-width: 100vw;
 }
 .wrapper{
     width: 100%;
@@ -23,6 +23,10 @@ html{
 }
 
 p{
+    font-size: 1vw;
+}
+
+a {
     font-size: 1vw;
 }
 
@@ -136,7 +140,6 @@ p{
 .result_box{
     margin-left: 15vw;
     height: auto;
-    /* width: auto; */
     max-width: 83vw;
     /* display: grid; */
     /* grid-column: repeat(4,1fr); */
@@ -168,35 +171,33 @@ p{
 .card_img {
     height: 60%;
 }
-.card_img img{
+
+.card_img a{
+    height: 100%;
+}
+.card_img a img{
     height: 100%;
 }
 
-/* 
-=============================================================
-
-=============================================================
-
-Gridem to musze potraktować bo mnie kurwica weźmie 
-
-=============================================================
-
-=============================================================
-*/
 
 .c_additional {
-    display: flex;
+    display: grid;
     width: 100%;
     height: 10%;
+    /* align-items: center;
+    justify-content: space-between; */
+    grid-template-areas: "best disc";
     align-items: center;
-    justify-content: space-between;
 }
 
 .bestseller{
     background-color: var(--button-color);
+    width: auto;
     font-weight: bold;
     padding: 0 0.3vw;
     border-radius: 0.2vw;
+    grid-area: best;
+    justify-self: flex-start;
 
 }
 
@@ -205,6 +206,9 @@ Gridem to musze potraktować bo mnie kurwica weźmie
     font-weight: bold;
     padding: 0 0.3vw;
     border-radius: 0.2vw;
+    grid-area: disc;
+    justify-self: flex-end;
+    width: auto;
 }
 
 .c_info{
@@ -267,3 +271,21 @@ Gridem to musze potraktować bo mnie kurwica weźmie
 
                       ===\/ ogólne \/===
 */
+
+
+.pointer, a, button {
+    cursor: pointer;
+}
+@media only screen and (max-width: 1700px){
+    .main{
+        height: 85vh;
+        max-width: 100vw;
+    }
+    .filtr_box{
+        position: fixed;
+        /* top: 13vh; */
+        height: 85vh;
+        width: 15%;
+        border-right: 2px solid rgb(0, 0, 0, 30%);
+    }
+}

@@ -15,6 +15,18 @@ export class BookInfoComponent implements OnInit {
   bookId: number = -1;
   book: Book | any;
 
+  testowy = {
+    id: 1,
+    name: "Kocham angulara",
+    author: "Ja",
+    category: "Dramat kurwa",
+    description: "Siur siur mały siur siur wielki siur siur taki jaki jest",
+    price: 21.37,
+    discount: 0.69,
+    isBestseller: true,
+    used: true,
+    imgPath: "/assets/ksionszki/book.svg"
+  }
 
   ngOnInit(): void {
     
@@ -30,6 +42,15 @@ export class BookInfoComponent implements OnInit {
     } else {
       this.router.navigate(['notfound'])
     }
+  }
+
+  show(){
+    let pdf = <HTMLElement>document.getElementById('pdf_container');
+    pdf.classList.remove('hidden');
+  }
+  hide(){
+    let pdf = <HTMLElement>document.getElementById('pdf_container');
+    pdf.classList.add('hidden');
   }
 
 }

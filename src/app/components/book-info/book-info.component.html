@@ -1,2 +1,50 @@
-<p>book-info works!</p>
-<p>{{book.name}}</p>
+<main>
+    <section class="page_container">
+
+        <div class="c_left">
+            <img src="/assets/ksionszki/book.svg" alt="">
+            <button (click)="show()" class="btn">Przejrzyj PDF</button>
+        </div>
+
+        <div class="c_right">
+            <div class="geniusz">
+                <div class="i_main">
+                    <h2>{{testowy.name}}</h2>
+                    <p class="p_author">{{testowy.author}}</p>
+                </div>
+    
+                <div class="info_container">
+                    <div class="i_c_desc">
+                        <p class="i_l">opis:</p>
+                        <p class="i_r">{{testowy.description}}</p>
+                    </div>
+                    <div class="i_c_desc">
+                        <p class="i_l">gatunek:</p>
+                        <p class="i_r">{{testowy.category}}</p>
+                    </div>
+                    <div class="i_c_desc">
+                        <p class="i_l">stan:</p>
+                        <p *ngIf="testowy.used" class="i_r">stara w chuj</p>
+                        <p *ngIf="!testowy.used" class="i_r">nowa w chuj</p>
+                    </div>
+                </div>
+                <div  *ngIf="testowy.discount!=0" class="ceny">
+                    <p class="price">{{(testowy.price - testowy.price*testowy.discount).toFixed(2)}} zł</p>
+                    <p class="old_discounted">{{testowy.price}} zł</p>
+                </div>
+                <div *ngIf="testowy.discount==0" class="ceny">
+                    <p class="price">{{testowy.price}} zł</p>
+                </div>
+            </div>
+            <div class="c_do_koszyka">
+                <button class="btn">Dodaj do koszyka</button>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<section id="pdf_container" class="pdf_c hidden">
+    <img (click)="hide()" src="assets/img/exit.svg" alt="">
+    <iframe class="pdf" embed src="/assets/pdf/test_pdf.pdf#toolbar=0" frameborder="0"></iframe>
+</section>
