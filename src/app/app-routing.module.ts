@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { BrowseComponent } from './components/browse/browse.component';
 import { FlipbookComponent } from './components/flipbook/flipbook.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: "book/:id", component: BookInfoComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "home", component: FlipbookComponent },
   { path: "search", component: BrowseComponent },
   { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "notfound", component: PageNotFoundComponent },
   { path: "**", component: PageNotFoundComponent }
