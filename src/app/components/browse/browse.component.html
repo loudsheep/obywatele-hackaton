@@ -14,38 +14,12 @@
 
                 <hr>
                 
-                <p class="f_pad">gatunek</p>
+                <p class="f_pad">Gatunek</p>
                 <div class="f_g_container">
-                    <div class="f_gatunek f_pad">
+                    <div class="f_gatunek f_pad" *ngFor="let gat of gatunki">
                         <input type="checkbox">
-                        <p>gatunek 1</p>
+                        <p>{{gat}}</p>
                     </div>
-
-                    <div class="f_gatunek f_pad">
-                        <input type="checkbox">
-                        <p>gatunek 1</p>
-                    </div>
-
-                    <div class="f_gatunek f_pad">
-                        <input type="checkbox">
-                        <p>gatunek 1</p>
-                    </div>
-
-                    <div class="f_gatunek f_pad">
-                        <input type="checkbox">
-                        <p>gatunek 1</p>
-                    </div>
-
-                    <div class="f_gatunek f_pad">
-                        <input type="checkbox">
-                        <p>gatunek 1</p>
-                    </div>
-
-                    <div class="f_gatunek f_pad">
-                        <input type="checkbox">
-                        <p>gatunek 1</p>
-                    </div>
-
                 </div>
 
                 <hr>
@@ -79,7 +53,9 @@
                     </div>
 
                     <div class="c_additional">
-                        <div class="bestseller" *ngIf="k.isBestseller">
+                        <!-- TODO fix: add isBestseller -->
+                        <!-- <div class="bestseller" *ngIf="k.isBestseller"> -->
+                        <div class="bestseller" *ngIf="true">
                             <p>Bestseller!</p>
                         </div>
                         <div class="discount" *ngIf="k.discount!=0">
