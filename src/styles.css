@@ -212,6 +212,42 @@ a {
   cursor: pointer;
 }
 
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  text-align: center;
+}
+
+
+footer img{
+  width: 1.75vw;
+  cursor: pointer;
+  animation: sczalka 1.5s infinite ease-in-out;
+  
+}
+
+@keyframes sczalka {
+  0% {
+    transform: translateY(0%);
+  }
+  50%{
+    transform: translateY(15%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+footer div{
+  background-color: white;
+}
+
+.hidden{
+  display: none;
+}
+
 @media only screen and (max-width: 1700px) {
   html {
     font-size: 1vw;

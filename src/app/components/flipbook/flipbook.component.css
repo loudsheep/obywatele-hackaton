@@ -159,3 +159,11 @@ p {
 #c3:checked ~ .flip-book #p3 {
   transform: rotateY(-180deg);
 }
+
+
+@media only screen and (max-width: 1700px){
+  body,
+  html{
+    height: 85vh;
+  }
+}
