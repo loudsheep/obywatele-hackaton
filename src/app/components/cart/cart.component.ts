@@ -43,6 +43,8 @@ export class CartComponent implements OnInit {
     discount: 0.31,
     bestseller: true,
     imgPath: '/assets/ksionszki/book.svg',
+    count: 1,
+    maxCount: 10,
   };
   testowy2 = {
     id: 2,
@@ -54,9 +56,37 @@ export class CartComponent implements OnInit {
     discount: 0,
     bestseller: true,
     imgPath: '/assets/ksionszki/book.svg',
+    count: 1,
+    maxCount: 5,
+  };
+  testowy3 = {
+    id: 1,
+    name: 'Kocham angulara',
+    author: 'Ja',
+    category: 'Dramat kurwa',
+    description: 'ty w sumie tego nie dodałem',
+    price: 21.37,
+    discount: 0.31,
+    bestseller: true,
+    imgPath: '/assets/ksionszki/book.svg',
+    count: 1,
+    maxCount: 10,
+  };
+  testowy4 = {
+    id: 2,
+    name: 'Sranko',
+    author: 'pierdolca dostane',
+    category: 'Dramat kurwa',
+    description: 'ty w sumie a',
+    price: 420.69,
+    discount: 0,
+    bestseller: true,
+    imgPath: '/assets/ksionszki/book.svg',
+    count: 1,
+    maxCount: 5,
   };
 
-  tempBooks = [this.testowy, this.testowy2, this.testowy, this.testowy2];
+  tempBooks = [this.testowy, this.testowy2, this.testowy3, this.testowy4];
   cartEmpty: boolean = false;
   constructor(private repo: BookRepository, private cartService: CartService) {}
 
@@ -93,5 +123,11 @@ export class CartComponent implements OnInit {
         Math.round((element.price - element.price * element.discount) * 100) /
         100;
     });
+  }
+  public changeAmmount(id: number, increase: boolean) {
+    if (increase && this.tempBooks[id].count < this.tempBooks[id].maxCount)
+      this.tempBooks[id].count++;
+    else if (!increase && this.tempBooks[id].count > 1)
+      this.tempBooks[id].count--;
   }
 }
