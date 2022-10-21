@@ -95,7 +95,7 @@ app-root {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .search_container button:hover {
