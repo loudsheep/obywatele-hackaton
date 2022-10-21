@@ -135,10 +135,10 @@ main {
 
 @keyframes slide {
   0% {
-    transform: translate3d(-950px, -859px, 0);
+    transform: translate3d(-950px, 0, 0);
   }
   100% {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, -859px, 0);
   }
 }
 
