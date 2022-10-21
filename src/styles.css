@@ -95,7 +95,7 @@ app-root {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  transition: 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .search_container button:hover {
@@ -159,7 +159,7 @@ app-root {
 #gatunki img {
   margin: 0 0 0.4em 0.4em;
   width: 0.6em;
-  transition: 0.3s;
+  transition: transform 0.3s;
 }
 .test ul {
   display: none;

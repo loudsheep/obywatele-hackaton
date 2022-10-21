@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 .all {
   display: block;
@@ -11,6 +12,9 @@
 .checkout {
   flex: 3;
 }
+.checkout * {
+  margin: 10px;
+}
 .result-box {
   flex: 7;
   display: flex;
@@ -18,7 +22,7 @@
 }
 .cart-title h2 {
   font-size: large;
-  padding: 1.2vh 0 0 1vw; /* <------------------ zmienić tak jest filtr */
+  padding: 1.2vh 0 0 1vw;
   margin-left: 10%;
   margin-top: 2%;
   margin-bottom: 2%;
@@ -34,14 +38,25 @@
 }
 
 .card {
-  /* background-color: brown; */
-  display: flex;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.card_all {
+  flex: 9;
+  height: 100%;
+  display: flex;
   width: 100%;
   position: relative;
   margin: 0;
 }
-
+.card_hr {
+  flex: 1;
+}
+hr {
+  border: 1px solid rgb(0, 0, 0, 30%);
+  border-radius: 2px;
+}
 .card_img {
   height: 100%;
   text-align: left;
@@ -51,13 +66,12 @@
 }
 
 .card_info {
+  flex: 1;
   height: 100%;
   text-align: left;
   width: 70%;
   word-wrap: break-word;
   display: flex;
-  position: absolute;
-  flex-direction: column;
   right: 0;
 }
 .c_info {
@@ -70,6 +84,34 @@
 }
 .card_img img {
   height: 100%;
+}
+
+.c_ceny {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  margin-left: 20%;
+}
+
+.old_discounted {
+  font-size: medium;
+  color: rgb(0, 0, 0, 70%);
+  text-decoration: line-through rgb(0, 0, 0, 70%);
+  margin-left: 0.5vw;
+}
+.basic_info {
+  flex: 1;
+  height: 100%;
+  max-height: 100%;
+}
+.b_change {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.b_change * {
+  margin: 5px;
 }
 
 .discount {
@@ -99,37 +141,88 @@
   color: rgb(0, 0, 0, 70%);
 }
 
-.c_ceny {
-  display: flex;
-  width: 100%;
-  justify-content: center;
+.btn {
+  border: none;
+  border-radius: 0.5em;
+  background-color: #ffcb35;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  min-width: 40px;
 }
-
-.old_discounted {
-  font-size: 0.8vw;
-  color: rgb(0, 0, 0, 70%);
-  text-decoration: line-through rgb(0, 0, 0, 70%);
-  margin-left: 0.5vw;
+.btn:hover {
+  background-color: #e19c2f;
 }
-
+.btn_pay {
+  width: 60%;
+  min-height: 50px;
+  margin: 20px;
+}
 .price {
   color: var(--background-color);
   font-weight: bold;
 }
 
-/* @media only screen and (max-width: 991px) {
-  .card {
-    display: block;
-  }
-  .card_info {
-    width: 100%;
-    text-align: center;
-    margin: auto;
-  }
+.btn_stepper {
+  height: auto;
+  padding: 2%;
+  width: auto;
+}
+@media only screen and (max-width: 991px) {
   .rest {
     display: block;
   }
-  .card_container {
-    padding: auto;
+  .card_all {
+    display: block;
+    width: 100%;
   }
-} */
+  .card_info {
+    width: 100%;
+    display: block;
+  }
+  .basic_info {
+    width: 100%;
+    display: block;
+  }
+  .c_info {
+    width: 100%;
+    display: block;
+    margin: 0;
+    max-width: 100%;
+  }
+  .card_img {
+    width: 100%;
+    justify-content: center;
+  }
+  .card {
+    display: block;
+  }
+  .b_change {
+    justify-content: center;
+  }
+  .b_change {
+    font-size: 3em;
+  }
+  .all_ceny {
+    position: relative;
+    text-align: center;
+    justify-content: center;
+  }
+  .c_ceny {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: auto;
+  }
+  .checkout {
+    text-align: center;
+  }
+  .checkout h1 {
+    font-size: 5em;
+  }
+  .checkout h3 {
+    font-size: 4em;
+  }
+  .price {
+    font-size: 3em;
+  }
+}

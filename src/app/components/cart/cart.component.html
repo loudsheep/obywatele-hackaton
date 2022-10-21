@@ -21,38 +21,60 @@
       </div>
       <div class="rest">
         <section class="card_container">
-          <div class="card" *ngFor="let k of tempBooks">
-            <div class="card_img">
-              <img src="{{ k.imgPath }}" alt="ksionszka" />
-            </div>
-            <div class="card_info">
-              <div class="c_info">
-                <p class="c_title">{{ k.name }}</p>
-                <p class="c_credit"><strong>Autor: </strong> {{ k.author }}</p>
-                <p class="c_credit">
-                  <strong>Gatunek: </strong>{{ k.description }}
-                </p>
+          <div class="card" *ngFor="let k of tempBooks; let i = index">
+            <div class="card_all">
+              <div class="card_img">
+                <img src="{{ k.imgPath }}" alt="{{ k.name }}" />
               </div>
-              <div class="all_ceny">
-                <div class="c_ceny" *ngIf="k.discount != 0">
-                  <p class="price">
-                    {{ (k.price - k.price * k.discount).toFixed(2) }}
-                  </p>
-                  <p class="old_discounted">{{ k.price }}</p>
+              <div class="card_info">
+                <div class="basic_info">
+                  <div class="c_info">
+                    <p class="c_title">{{ k.name }}</p>
+                    <p class="c_credit">
+                      <strong>Autor: </strong> {{ k.author }}
+                    </p>
+                    <p class="c_credit">
+                      <strong>Gatunek: </strong>{{ k.description }}
+                    </p>
+                  </div>
+                  <div class="all_ceny">
+                    <div class="c_ceny" *ngIf="k.discount != 0">
+                      <p class="price">
+                        {{ (k.price - k.price * k.discount).toFixed(2) }} zł
+                      </p>
+                      <p class="old_discounted">{{ k.price }} zł</p>
+                    </div>
+                    <div class="c_ceny" *ngIf="k.discount == 0">
+                      <p class="price">
+                        {{ (k.price - k.price * k.discount).toFixed(2) }} zł
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div class="c_ceny" *ngIf="k.discount == 0">
-                  <p class="price">
-                    {{ (k.price - k.price * k.discount).toFixed(2) }} zł
-                  </p>
+                <div class="b_change">
+                  <button
+                    class="btn btn_stepper"
+                    (click)="changeAmmount(i, false)"
+                  >
+                    -
+                  </button>
+                  <p>{{ k.count }}</p>
+                  <button
+                    class="btn btn_stepper"
+                    (click)="changeAmmount(i, true)"
+                  >
+                    +
+                  </button>
                 </div>
               </div>
             </div>
+            <div class="card_hr"><hr /></div>
           </div>
         </section>
         <div class="checkout">
           <h1>Wartość koszyka</h1>
           <h3>Do zapłaty: {{ priceAll }}</h3>
-          <button>CLICK</button>
+          <button class="btn btn_pay">PŁATNOŚĆ I DOSTAWA</button>
         </div>
       </div>
     </div>
