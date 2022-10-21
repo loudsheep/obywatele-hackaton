@@ -36,7 +36,7 @@ app-root {
 .header {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 3;
   width: 100%;
   height: 13vh;
 }
@@ -95,7 +95,7 @@ app-root {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  transition: background-color 0.5s ease, border-color 0.5s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .search_container button:hover {
@@ -230,11 +230,22 @@ a {
   }
 }
 
-@media only screen and (max-width: 500px) {
-  .search_container {
-    width: 100%;
+@media only screen and (max-width: 991px) {
+  .u_header {
+    padding: 0;
+    justify-content: space-evenly;
   }
-  .search_container button {
-    display: none;
+
+  .search_container {
+    width: 60%;
+  }
+  .navbar {
+    padding: 0%;
+    margin: 0;
+    justify-content: space-evenly;
+  }
+  .pointer,
+  .pointer::placeholder {
+    font-size: 3vw;
   }
 }

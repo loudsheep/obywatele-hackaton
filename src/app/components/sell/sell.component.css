@@ -162,7 +162,7 @@ main {
   font-size: 1.2rem;
   padding: 0.2em 0.5em;
   border: none;
-  transition: background-color 0.5s ease, border-color 0.5s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn:hover {
