@@ -1,0 +1,49 @@
+<main>
+    <h2>Sprzedaj książkę</h2>
+
+    <section class="wrapper">
+        <div class="book_info">
+
+            <div class="i_left">
+                <div id="img_container"></div>
+                <input type="file" id="img" name="img" accept="image/*" (change)="loadImg($event)">
+                <label for="img" class="btn">Prześlij zdjęcie</label>
+            </div>
+            <div class="i_right">
+
+                <div class="i_r_first">
+                    <div class="i_title">
+                        <p>Tytuł</p>
+                        <input class="inpucik" type="text" placeholder="Podaj tytuł">
+                    </div>
+                    <div class="i_author">
+                        <p>Autor</p>
+                        <input class="inpucik" type="text" placeholder="Podaj autora">
+                    </div>
+                </div>
+                <div class="i_r_second">
+                    <p>Opis</p>
+                    <textarea class="inpucik" name="" id="" placeholder="Wprowadź opis"></textarea>
+                </div>
+                <div class="i_r_third">
+                    <div class="i_genre">
+                        <p>Gatunek</p>
+                        <select class="inpucik" name="" id="">
+                            <option *ngFor="let g of tab_gatunki" value={{g}}>{{g}}</option>
+                        </select>
+                    </div>
+                    <div class="i_price">
+                        <p>Cena</p>
+                        <input class="inpucik" type="number" placeholder="Podaj cene">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <div class="buttonik">
+        <button class="btn">Sprzedaj</button>
+    </div>
+
+</main>

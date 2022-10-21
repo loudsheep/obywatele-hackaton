@@ -15,6 +15,7 @@ import { FlipbookComponent } from './components/flipbook/flipbook.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SellComponent } from './components/sell/sell.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { RegisterComponent } from './components/register/register.component';
     LoginComponent,
     HomeComponent,
     BrowseComponent,
-    RegisterComponent
+    RegisterComponent,
+    SellComponent
   ],
   providers: [BookRepository, StaticDataSource, CartService],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
