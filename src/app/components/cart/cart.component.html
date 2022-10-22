@@ -21,7 +21,7 @@
       </div>
       <div class="rest">
         <section class="card_container">
-          <div class="card" *ngFor="let k of tempBooks; let i = index">
+          <div class="card" *ngFor="let k of booksInCart; let i = index">
             <div class="card_all">
               <div class="card_img">
                 <img src="{{ k.imgPath }}" alt="{{ k.name }}" />
@@ -73,7 +73,7 @@
         </section>
         <div class="checkout">
           <h1>Wartość koszyka</h1>
-          <h3>Do zapłaty: {{ priceAll }}</h3>
+          <h3>Do zapłaty: {{ priceAllFormated }}</h3>
           <button class="btn btn_pay">PŁATNOŚĆ I DOSTAWA</button>
         </div>
       </div>

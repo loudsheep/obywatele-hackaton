@@ -75,7 +75,7 @@
             <p class="old_discounted">{{ k.price }}</p>
           </div>
           <div class="c_btn_container">
-            <button>Do koszyka</button>
+            <button (click)="addBookToCart(k.id)">Do koszyka</button>
           </div>
         </div>
 

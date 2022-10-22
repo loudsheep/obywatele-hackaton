@@ -10,27 +10,28 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
   priceAll = 0;
-  booksInCart: Book[] = [
-    {
-      id: 0,
-      name: 'Efektywne programowanie w języku Java',
-      category: 'podręcznik',
-      description: 'Podręcznik javy',
-      price: 54.99,
-      imgPath: ['/assets/ksionszki/book.svg'],
-      author: 'fdjksa',
-      discount: 12,
-    },
-    {
-      id: 1,
-      name: 'Efektywne programowanie w języku C++',
-      category: 'podręcznik',
-      description: 'Podręcznik C++',
-      price: 44.99,
-      imgPath: ['/assets/ksionszki/book.svg'],
-      author: 'marcin świerta',
-      discount: 0,
-    },
+  priceAllFormated = "";
+  booksInCart: any[] = [
+    // {
+    //   id: 0,
+    //   name: 'Efektywne programowanie w języku Java',
+    //   category: 'podręcznik',
+    //   description: 'Podręcznik javy',
+    //   price: 54.99,
+    //   imgPath: ['/assets/ksionszki/book.svg'],
+    //   author: 'fdjksa',
+    //   discount: 12,
+    // },
+    // {
+    //   id: 1,
+    //   name: 'Efektywne programowanie w języku C++',
+    //   category: 'podręcznik',
+    //   description: 'Podręcznik C++',
+    //   price: 44.99,
+    //   imgPath: ['/assets/ksionszki/book.svg'],
+    //   author: 'marcin świerta',
+    //   discount: 0,
+    // },
   ];
 
   testowy = {
@@ -88,7 +89,7 @@ export class CartComponent implements OnInit {
 
   tempBooks = [this.testowy, this.testowy2, this.testowy3, this.testowy4];
   cartEmpty: boolean = false;
-  constructor(private repo: BookRepository, private cartService: CartService) {}
+  constructor(private repo: BookRepository, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.loadBooks();
@@ -97,6 +98,7 @@ export class CartComponent implements OnInit {
 
   // localstorage holds book.id array
   public loadBooks() {
+    this.booksInCart = [];
     let bookIDs: number[] = this.cartService.getBookIDs();
 
     if (this.cartService.isEmpty()) {
@@ -105,9 +107,14 @@ export class CartComponent implements OnInit {
     }
 
     bookIDs.forEach((ID) => {
-      let book = this.repo.getBook(ID);
+      let book = this.repo.getBook(ID) as any;
       if (book) {
-        this.booksInCart.push(book);
+        if (this.booksInCart.find(b => b.id == ID)) {
+          this.booksInCart.find(b => b.id == ID).count++;
+        } else {
+          book.count = 1;
+          this.booksInCart.push(book);
+        }
       }
     });
     this.cartEmpty = false;
@@ -118,16 +125,34 @@ export class CartComponent implements OnInit {
   }
 
   public calculatePrice() {
-    this.tempBooks.forEach((element) => {
+    this.priceAll = 0;
+    this.booksInCart.forEach((element) => {
       this.priceAll +=
         Math.round((element.price - element.price * element.discount) * 100) /
-        100;
+        100 * element.count;
     });
+
+    if (this.priceAll > 0) {
+      this.priceAllFormated = this.priceAll.toFixed(2);
+    } else {
+      this.priceAllFormated = "0.00";
+    }
   }
+
   public changeAmmount(id: number, increase: boolean) {
-    if (increase && this.tempBooks[id].count < this.tempBooks[id].maxCount)
-      this.tempBooks[id].count++;
-    else if (!increase && this.tempBooks[id].count > 1)
-      this.tempBooks[id].count--;
+    if (increase) {
+      this.booksInCart[id].count++;
+      this.cartService.addToCart(this.booksInCart[id].id)
+    }
+    else if (!increase && this.booksInCart[id].count >= 1) {
+      this.booksInCart[id].count--;
+      this.cartService.deleteFromCart(this.booksInCart[id].id);
+      if (this.booksInCart[id].count == 0) {
+        this.booksInCart.splice(id, 1);
+      }
+    }
+
+    this.loadBooks();
+    this.calculatePrice();
   }
 }

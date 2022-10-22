@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from 'src/app/services/book';
 import { BookRepository } from 'src/app/services/book.repository.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-browse',
@@ -10,7 +11,7 @@ import { BookRepository } from 'src/app/services/book.repository.service';
 })
 export class BrowseComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private repo: BookRepository) { }
+  constructor(private route: ActivatedRoute, private repo: BookRepository, private cart: CartService) { }
 
   searchName: any;
   found:Book[] = [];
@@ -32,6 +33,10 @@ export class BrowseComponent implements OnInit {
 
   private findBooks() {
     this.found = this.repo.getBooks().filter(b => b.name.toLocaleLowerCase().indexOf(this.searchName.toLocaleLowerCase()) >= 0);
+  }
+
+  addBookToCart(id: number) {
+    this.cart.addToCart(id);
   }
 
   // testowy = {
