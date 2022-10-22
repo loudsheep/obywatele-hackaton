@@ -35,5 +35,6 @@ export class SellComponent implements OnInit {
     this.img_url = URL.createObjectURL(event.target.files[0]);
     console.log(this.img_url)
   }
-  tab_gatunki = ["dramat","edukacyjne","niewiem","siurek","UwU","heszkiwmeszki"]
+
+  tab_gatunki = ["dramat","edukacyjne","niewiem", "inne", "podręcznik"];
 }
