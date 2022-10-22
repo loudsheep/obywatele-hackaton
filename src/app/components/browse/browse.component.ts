@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tick } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from 'src/app/services/book';
 import { BookRepository } from 'src/app/services/book.repository.service';
@@ -14,9 +15,14 @@ export class BrowseComponent implements OnInit {
   constructor(private route: ActivatedRoute, private repo: BookRepository, private cart: CartService) { }
 
   searchName: any;
-  found:Book[] = [];
+  bestseller: boolean = false;
+  discount: boolean = false;
+  found: Book[] = [];
+  categoryFileters: string[] = [];
+  minPrice: any = null;
+  maxPrice: any = null;
 
-  gatunki:string[] = [];
+  gatunki: string[] = [];
 
   ngOnInit(): void {
     this.route.queryParams
@@ -26,41 +32,50 @@ export class BrowseComponent implements OnInit {
         console.log(this.searchName); // price
       });
 
-      this.findBooks(); 
-      this.gatunki = this.repo.getCategories();
-      console.log(this.gatunki);
+    this.findBooks();
+    this.gatunki = this.repo.getCategories();
+    console.log(this.gatunki);
   }
 
-  private findBooks() {
-    this.found = this.repo.getBooks().filter(b => b.name.toLocaleLowerCase().indexOf(this.searchName.toLocaleLowerCase()) >= 0);
+  findBooks() {
+    this.found = this.repo.getBooks();
+
+    if (this.minPrice != null) {
+      this.found = this.found.filter(b => b.price >= this.minPrice);
+    }
+
+    if (this.maxPrice != null) {
+      this.found = this.found.filter(b => b.price <= this.maxPrice);
+    }
+
+    if (this.bestseller) {
+      // TODO
+      // this.found = this.found.getBooks().filter(b => b.bestseller);
+    }
+
+    if (this.discount) {
+      this.found = this.found.filter(b => b.discount > 0);
+    }
+
+    if (this.categoryFileters.length > 0) {
+      this.categoryFileters.forEach(element => {
+        this.found = this.found.filter(b => b.category == element);
+      });
+    }
+
+    this.found = this.found.filter(b => b.name.toLocaleLowerCase().indexOf(this.searchName.toLocaleLowerCase()) >= 0);
   }
 
   addBookToCart(id: number) {
     this.cart.addToCart(id);
   }
 
-  // testowy = {
-  //   id: 1,
-  //   name: "Kocham angulara",
-  //   author: "Ja",
-  //   category: "Dramat kurwa",
-  //   description: "ty w sumie tego nie dodałem",
-  //   price: 21.37,
-  //   discount: 0.31,
-  //   isBestseller: true,
-  //   imgPath: "/assets/ksionszki/book.svg"
-  // }
-  // testowy2 = {
-  //   id: 2,
-  //   name: "Sranko",
-  //   author: "pierdolca dostane",
-  //   category: "Dramat kurwa",
-  //   description: "ty w sumie tego nie dodałem",
-  //   price: 420.69,
-  //   discount: 0.69,
-  //   isBestseller: true,
-  //   imgPath: "/assets/ksionszki/book.svg"
-  // }
-
-
+  addCategoryFilter(category: string) {
+    if (this.categoryFileters.indexOf(category) != -1) {
+      this.categoryFileters.splice(this.categoryFileters.indexOf(category), 1);
+    } else {
+      this.categoryFileters.push(category);
+    }
+    this.findBooks();
+  }
 }
