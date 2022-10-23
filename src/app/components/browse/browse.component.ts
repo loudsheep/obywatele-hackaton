@@ -25,11 +25,14 @@ export class BrowseComponent implements OnInit {
   gatunki: string[] = [];
 
   ngOnInit(): void {
+    var okazje = null;
     this.route.queryParams
       .subscribe(params => {
         console.log(params); // { orderby: "price" }
         this.searchName = params["book"];
-        console.log(this.searchName); // price
+        if (params["bestseller"]) {
+          this.bestseller = true;
+        }
       });
 
     this.findBooks();
@@ -61,7 +64,9 @@ export class BrowseComponent implements OnInit {
       });
     }
 
-    this.found = this.found.filter(b => b.name.toLocaleLowerCase().indexOf(this.searchName.toLocaleLowerCase()) >= 0);
+    if (this.searchName = "") {
+      this.found = this.found.filter(b => b.name.toLocaleLowerCase().indexOf(this.searchName.toLocaleLowerCase()) >= 0);
+    }
   }
 
   addBookToCart(id: number) {
