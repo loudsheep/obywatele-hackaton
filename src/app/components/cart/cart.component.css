@@ -35,6 +35,7 @@
   height: 60%;
   width: 80vw;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 
 .card {
