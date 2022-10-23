@@ -23,7 +23,7 @@ html {
 }
 
 p {
-  font-size: 1.75vh;
+  font-size: 1.7vh;
 }
 
 a {
@@ -86,7 +86,7 @@ a {
 }
 
 .filtry_container hr {
-  margin: 1.5vh 0;
+  margin: 1vh 0;
   border: 0.1px solid rgb(0, 0, 0, 20%);
 }
 
@@ -283,5 +283,8 @@ button {
     height: 85vh;
     width: 15%;
     border-right: 2px solid rgb(0, 0, 0, 30%);
+  }
+  p{
+    font-size: 1.6vh;
   }
 }
