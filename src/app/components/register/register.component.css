@@ -131,7 +131,7 @@ main {
   height: 19000px;
   width: 17080px;
   background-size: auto;
-  animation: slide 5s linear infinite;
+  animation: slide 10s linear infinite;
 }
 
 @keyframes slide {
@@ -149,8 +149,41 @@ main {
     height: 65%;
   }
 }
-@media only screen and (max-width: 1700px) {
+@media only screen and (min-width: 1440px) {
+  .pojemnik {
+    height: 55%;
+  }
+}
+@media only screen and (max-width: 991px) {
   .container {
     height: 85vh;
+  }
+  .pojemnik {
+    text-align: center;
+    height: 65%;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25%;
+    font-size: 19px;
+  }
+  .inpucik::placeholder {
+    font-size: 3vw;
+  }
+  .btn {
+    height: 10%;
+    min-height: 50px;
+  }
+  .inpucik {
+    height: 10%;
+    min-height: 50px;
+    font-size: 2vw;
+  }
+  .zal_btn,
+  .zar_btn {
+    padding: 3%;
+    display: flex;
+    align-items: center;
   }
 }
