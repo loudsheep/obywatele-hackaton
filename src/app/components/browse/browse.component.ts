@@ -74,7 +74,7 @@ export class BrowseComponent implements OnInit {
       });
     }
 
-    if (this.searchName = "") {
+    if (this.searchName != "") {
       this.found = this.found.filter(b => b.name.toLocaleLowerCase().indexOf(this.searchName.toLocaleLowerCase()) >= 0);
     }
   }
