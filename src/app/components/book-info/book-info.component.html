@@ -1,50 +1,67 @@
-<main>
-    <section class="page_container">
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <section class="page_container">
         <div class="c_left">
-            <img src={{book.imgPath[0]}} alt="">
-            <button (click)="show()" class="btn">Przejrzyj PDF</button>
+          <img src="{{ book.imgPath[0] }}" alt="" />
+          <button (click)="show()" class="btn">Przejrzyj PDF</button>
         </div>
 
         <div class="c_right">
-            <div class="geniusz">
-                <div class="i_main">
-                    <h2>{{book.name}}</h2>
-                    <p class="p_author">{{book.author}}</p>
-                </div>
-    
-                <div class="info_container">
-                    <div class="i_c_desc">
-                        <p class="i_l">opis:</p>
-                        <p class="i_r">{{book.description}}</p>
-                    </div>
-                    <div class="i_c_desc">
-                        <p class="i_l">gatunek:</p>
-                        <p class="i_r">{{book.category}}</p>
-                    </div>
-                    <div class="i_c_desc">
-                        <p class="i_l">stan:</p>
-                        <p *ngIf="book.used" class="i_r">używana</p>
-                        <p *ngIf="!book.used" class="i_r">nowa</p>
-                    </div>
-                </div>
-                <div  *ngIf="book.discount!=0" class="ceny">
-                    <p class="price">{{(book.price - book.price*book.discount).toFixed(2)}} zł</p>
-                    <p class="old_discounted">{{book.price}} zł</p>
-                </div>
-                <div *ngIf="book.discount==0" class="ceny">
-                    <p class="price">{{book.price}} zł</p>
-                </div>
+          <div class="geniusz">
+            <div class="i_main">
+              <h2>{{ book.name }}</h2>
+              <p class="p_author">{{ book.author }}</p>
             </div>
-            <div class="c_do_koszyka">
-                <button class="btn" (click)="addToCart()">Dodaj do koszyka</button>
+
+            <div class="info_container">
+              <div class="i_c_desc">
+                <p class="i_l">opis:</p>
+                <p class="i_r">{{ book.description }}</p>
+              </div>
+              <div class="i_c_desc">
+                <p class="i_l">gatunek:</p>
+                <p class="i_r">{{ book.category }}</p>
+              </div>
+              <div class="i_c_desc">
+                <p class="i_l">stan:</p>
+                <p *ngIf="book.used" class="i_r">używana</p>
+                <p *ngIf="!book.used" class="i_r">nowa</p>
+              </div>
             </div>
+            <div class="c_do_koszyka"></div>
+            <div *ngIf="book.discount != 0" class="ceny">
+              <p class="price">
+                {{ (book.price - book.price * book.discount).toFixed(2) }} zł
+              </p>
+              <p class="old_discounted">{{ book.price }} zł</p>
+            </div>
+            <div *ngIf="book.discount == 0" class="ceny">
+              <p class="price">{{ book.price }} zł</p>
+            </div>
+          </div>
+          <div class="c_do_koszyka">
+            <button class="btn">Dodaj do koszyka</button>
+          </div>
         </div>
+      </section>
+    </main>
 
+    <section id="pdf_container" class="pdf_c hidden">
+      <img (click)="hide()" src="assets/img/exit.svg" alt="" />
+      <iframe
+        class="pdf"
+        embed
+        src="/assets/pdf/test_pdf.pdf#toolbar=0"
+        frameborder="0"
+      ></iframe>
     </section>
-</main>
-
-<section id="pdf_container" class="pdf_c hidden">
-    <img (click)="hide()" src="assets/img/exit.svg" alt="">
-    <iframe class="pdf" embed src="/assets/pdf/test_pdf.pdf#toolbar=0" frameborder="0"></iframe>
-</section>
+  </body>
+</html>
