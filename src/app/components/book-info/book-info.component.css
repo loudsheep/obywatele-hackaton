@@ -12,17 +12,16 @@ p {
   font-size: 1.1rem;
 }
 
-main {
-  height: 80vh;
+/* main {
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .page_container {
-  width: 50%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,16 +32,21 @@ main {
 */
 
 .c_left {
+  flex: 1;
   height: 100%;
-  width: 40%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-end;
+  align-content: flex-end;
+  text-align: end;
 }
-
+.c_left * {
+  margin-top: 5%;
+  margin-right: 5%;
+}
 .c_left img {
-  height: 90%;
+  height: 60vh;
+  min-height: 300px;
 }
 
 /* 
@@ -52,12 +56,10 @@ main {
 */
 
 .c_right {
+  flex: 1;
   height: 100%;
-  width: 60%;
-  padding-top: 1.5vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .geniusz {
@@ -124,7 +126,7 @@ h2 {
   font-weight: bold;
   font-size: 1.7rem;
   background-color: var(--button-color);
-  align-self: center;
+  margin-right: 17.5% !important;
   transition: 0.3s;
 }
 
@@ -192,8 +194,36 @@ button,
   cursor: pointer;
 }
 
-@media only screen and (max-width: 1700px) {
+@media only screen and (max-width: 991px) {
   .page_container {
-    height: 63%;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .c_left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .c_left *,
+  .btn {
+    margin-right: 0 !important;
+    padding: 2% !important;
+  }
+  .btn {
+    margin-bottom: 2vh;
+  }
+  .i_main {
+    text-align: center;
+  }
+
+  .info_container {
+    margin: 2%;
+  }
+  .ceny {
+    justify-content: center;
   }
 }
