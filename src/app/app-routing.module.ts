@@ -10,6 +10,7 @@ import { FlipbookComponent } from './components/flipbook/flipbook.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SellComponent } from './components/sell/sell.component';
+import { AccountComponent } from './components/account/account.component';
 
 const routes: Routes = [
   { path: "book/:id", component: BookInfoComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: "home", component: FlipbookComponent },
   { path: "search", component: BrowseComponent },
   { path: "login", component: LoginComponent },
+  { path: "account", component: AccountComponent },
   { path: "sell-page", component: SellComponent },
   { path: "register", component: RegisterComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },

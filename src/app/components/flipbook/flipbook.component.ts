@@ -124,4 +124,21 @@ export class FlipbookComponent implements OnInit {
       }
     }
   }
+
+  showFoot(){
+    let strzalka1 = <HTMLElement>document.getElementById('f_arrow');
+    let strzalka2 = <HTMLElement>document.getElementById('u_arrow');
+    let stupka = <HTMLElement>document.getElementById('stupka');
+    if(stupka.classList.contains('hidden')){
+      stupka.classList.remove('hidden');
+      strzalka1.classList.remove('hidden');
+      strzalka2.classList.add('hidden');
+    }
+    else{
+      stupka.classList.add('hidden');
+      strzalka1.classList.add('hidden');
+      strzalka2.classList.remove('hidden');
+    }
+
+  }
 }

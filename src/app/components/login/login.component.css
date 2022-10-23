@@ -134,6 +134,11 @@ main {
   animation: slide 10s linear infinite;
 }
 
+#demo{
+  font-size: 0.75rem;
+  text-align: center;
+}
+
 @keyframes slide {
   0% {
     transform: translate3d(0, 0, 0);
@@ -181,3 +186,4 @@ main {
     align-items: center;
   }
 }
+
