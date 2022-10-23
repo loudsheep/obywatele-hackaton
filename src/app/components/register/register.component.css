@@ -131,7 +131,7 @@ main {
   height: 19000px;
   width: 17080px;
   background-size: auto;
-  animation: slide 5s linear infinite;
+  animation: slide 10s linear infinite;
 }
 
 @keyframes slide {
