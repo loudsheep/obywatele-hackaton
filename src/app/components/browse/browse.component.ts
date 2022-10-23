@@ -25,32 +25,33 @@ export class BrowseComponent implements OnInit {
   gatunki: string[] = [];
 
   ngOnInit(): void {
+    var okazje = null;
     this.route.queryParams
       .subscribe(params => {
         console.log(params); // { orderby: "price" }
         this.searchName = params["book"];
-        console.log(this.searchName); // price
+        if (params["bestseller"]) {
+          this.bestseller = true;
+        }
       });
 
     this.findBooks();
     this.gatunki = this.repo.getCategories();
-    console.log(this.gatunki);
   }
 
   findBooks() {
     this.found = this.repo.getBooks();
 
     if (this.minPrice != null) {
-      this.found = this.found.filter(b => b.price >= this.minPrice);
+      this.found = this.found.filter(b => b.price - b.price * b.discount >= this.minPrice);
     }
 
     if (this.maxPrice != null) {
-      this.found = this.found.filter(b => b.price <= this.maxPrice);
+      this.found = this.found.filter(b => b.price - b.price * b.discount <= this.maxPrice);
     }
 
     if (this.bestseller) {
-      // TODO
-      // this.found = this.found.getBooks().filter(b => b.bestseller);
+      this.found = this.found.filter(b => b.isBestseller);
     }
 
     if (this.discount) {
@@ -63,7 +64,9 @@ export class BrowseComponent implements OnInit {
       });
     }
 
-    this.found = this.found.filter(b => b.name.toLocaleLowerCase().indexOf(this.searchName.toLocaleLowerCase()) >= 0);
+    if (this.searchName = "") {
+      this.found = this.found.filter(b => b.name.toLocaleLowerCase().indexOf(this.searchName.toLocaleLowerCase()) >= 0);
+    }
   }
 
   addBookToCart(id: number) {

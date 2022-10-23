@@ -36,6 +36,7 @@
                 <p *ngIf="!book.used" class="i_r">nowa</p>
               </div>
             </div>
+            <div class="c_do_koszyka"></div>
             <div *ngIf="book.discount != 0" class="ceny">
               <p class="price">
                 {{ (book.price - book.price * book.discount).toFixed(2) }} zł

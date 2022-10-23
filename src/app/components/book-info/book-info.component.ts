@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Book } from 'src/app/services/book';
 import { BookRepository } from 'src/app/services/book.repository.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-book-info',
@@ -10,26 +11,12 @@ import { BookRepository } from 'src/app/services/book.repository.service';
 })
 export class BookInfoComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private repo: BookRepository) { }
+  constructor(private route: ActivatedRoute, private router: Router, private repo: BookRepository, private cart: CartService) { }
 
   bookId: number = -1;
   book: Book | any;
 
-  // testowy = {
-  //   id: 1,
-  //   name: "Kocham angulara",
-  //   author: "Ja",
-  //   category: "Dramat",
-  //   description: "kekekkekekw",
-  //   price: 21.37,
-  //   discount: 0.69,
-  //   isBestseller: true,
-  //   used: true,
-  //   imgPath: "/assets/ksionszki/book.svg"
-  // }
-
   ngOnInit(): void {
-    
     // NOTE: supply parameters in URL in form of www.domain.com/route/param1/param2 etc.
     // doesn't work with old fashion GET parameters like ?param1=&param2=
     this.route.paramMap.subscribe(paramMap => {
@@ -42,6 +29,10 @@ export class BookInfoComponent implements OnInit {
     } else {
       this.router.navigate(['notfound'])
     }
+  }
+
+  addToCart() {
+    this.cart.addToCart(this.bookId);
   }
 
   show(){

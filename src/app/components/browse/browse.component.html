@@ -39,17 +39,17 @@
     </div>
 
     <div class="result_box">
-      <h2>Wyniki</h2>
+      <h2>Wyniki ({{found.length}})</h2>
       <section class="card_container">
         <div class="card" *ngFor="let k of found">
           <div class="card_img">
-            <a href="/book/{{ k.id }}"><img class="pointer" style="width: 100%;" src="{{ k.imgPath }}" alt="ksionszka" /></a>
+            <a href="/book/{{ k.id }}"><img class="pointer" style="width: 100%;" src="{{ k.imgPath }}" alt="ksionszka"/></a>
           </div>
 
           <div class="c_additional">
             <!-- TODO fix: add isBestseller -->
-            <!-- <div class="bestseller" *ngIf="k.isBestseller"> -->
-            <div class="bestseller" *ngIf="true">
+            <div class="bestseller" *ngIf="k.isBestseller">
+            <!-- <div class="bestseller" *ngIf="true"> -->
               <p>Bestseller!</p>
             </div>
             <div class="discount" *ngIf="k.discount != 0">
