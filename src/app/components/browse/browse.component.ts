@@ -43,11 +43,11 @@ export class BrowseComponent implements OnInit {
     this.found = this.repo.getBooks();
 
     if (this.minPrice != null) {
-      this.found = this.found.filter(b => b.price >= this.minPrice);
+      this.found = this.found.filter(b => b.price - b.price * b.discount >= this.minPrice);
     }
 
     if (this.maxPrice != null) {
-      this.found = this.found.filter(b => b.price <= this.maxPrice);
+      this.found = this.found.filter(b => b.price - b.price * b.discount <= this.maxPrice);
     }
 
     if (this.bestseller) {
