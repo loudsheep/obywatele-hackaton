@@ -17,6 +17,7 @@ export class BrowseComponent implements OnInit {
   searchName: any;
   bestseller: boolean = false;
   discount: boolean = false;
+  book_status: string = "";
   found: Book[] = [];
   categoryFileters: string[] = [];
   minPrice: any = null;
@@ -32,6 +33,9 @@ export class BrowseComponent implements OnInit {
         this.searchName = params["book"];
         if (params["bestseller"]) {
           this.bestseller = true;
+        }
+        if (params["used"]) {
+          this.book_status = "used";
         }
       });
 
@@ -56,6 +60,12 @@ export class BrowseComponent implements OnInit {
 
     if (this.discount) {
       this.found = this.found.filter(b => b.discount > 0);
+    }
+
+    if (this.book_status == "used") {
+      this.found = this.found.filter(b => b.used);
+    } else if (this.book_status == "new") {
+      this.found = this.found.filter(b => !b.used);
     }
 
     if (this.categoryFileters.length > 0) {
