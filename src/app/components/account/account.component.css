@@ -1,0 +1,141 @@
+:root {
+    --button-color: #ffcb35;
+    --background-color: #e19c2f;
+}
+
+main{
+    height: 85vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    padding-top: 2vh;
+}
+
+.wrapper{
+    width: 60%;
+    height: 80%;
+    display: flex;
+}
+.c_left{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#img_container {
+    height: 20vh;
+    width: 20vh;
+    border: 1.5px solid rgb(0, 0, 0, 30%);
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.c_left input{
+    display: none;
+    
+}
+.c_left label{
+    margin-top: 1em;
+    width: auto;
+    height: auto;
+    background-color: var(--button-color);
+    padding: 0.2em 0.3em;
+    border-radius: 0.3em;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.c_left label:hover{
+    background-color: var(--background-color);
+}
+
+.c_middle{
+    width: 50%;
+    height: 100%;
+}
+
+.c_middle div{
+    width: 100%;
+    height: 15%;
+}
+
+#btn_save{
+    width: 80%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#btn_save button{
+    width: auto;
+    height: auto;
+    background-color: var(--button-color);
+    padding: 0.2em 0.5em;
+    border-radius: 0.3em;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+#btn_save button:hover {
+    background-color: var(--background-color);
+}
+
+input{
+    width: 80%; 
+    height: 50%;
+    border-radius: 0.6em;
+    border: 1px solid rgb(0, 0, 0, 30%);
+    color: black;
+    padding-left: 1em;  
+    font-size: 1rem;
+}
+
+input::placeholder {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.c_right {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.c_right h2{
+    margin-bottom: 1em;
+}
+.c_right a{
+    width: auto;
+    height: auto;
+    background-color: var(--button-color);
+    padding: 0.2em 0.75em;
+    border-radius: 0.3em;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.c_right a:hover{
+    background-color: var(--background-color);
+}
+
+
+a, label, button {
+    cursor: pointer;
+}
+
+

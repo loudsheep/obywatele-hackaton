@@ -1,0 +1,37 @@
+<main>
+    <h1>Konto (DEMO)</h1>
+    <section class="wrapper">
+        <div class="c_left">
+            <div id="img_container">
+
+            </div>
+            <input type="file" id="img" name="img" accept="image/*" (change)="loadImg($event)">
+            <label for="img" class="btn">Prześlij zdjęcie</label>
+        </div>
+        <div class="c_middle">
+            <div class="name">
+                <p>Nazwa profilu</p>
+                <input type="text" [(ngModel)]="nick">
+            </div>
+            <div class="email">
+                <p>Email</p>
+                <input type="text" [(ngModel)]="email">
+            </div>
+            <div class="passwd">
+                <p>Zmień hasło</p>
+                <input type="password">
+            </div>
+            <div class="passwd_r">
+                <p>Powtórz hasło</p>
+                <input type="password">
+            </div>
+            <div id="btn_save">
+                <button>Zapisz zmiany</button>
+            </div>
+        </div>
+        <div class="c_right">
+            <h2>Sprzedaj książkę na Bazarku</h2>
+            <a href="/sell-page">Sprzedaj</a>
+        </div>
+    </section>
+</main>

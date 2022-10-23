@@ -53,7 +53,7 @@
               <p>Bestseller!</p>
             </div>
             <div class="discount" *ngIf="k.discount != 0">
-              <p>-{{ k.discount * 100 }}%</p>
+              <p>-{{ (k.discount * 100).toFixed(0) }}%</p>
             </div>
           </div>
           <div class="c_info">

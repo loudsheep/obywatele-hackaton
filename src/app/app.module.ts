@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SellComponent } from './components/sell/sell.component';
+import { AccountComponent } from './components/account/account.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { SellComponent } from './components/sell/sell.component';
     HomeComponent,
     BrowseComponent,
     RegisterComponent,
-    SellComponent
+    SellComponent,
+    AccountComponent
   ],
   providers: [BookRepository, StaticDataSource, CartService],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
