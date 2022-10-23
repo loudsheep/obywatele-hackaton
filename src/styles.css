@@ -4,10 +4,6 @@
   --background-color: #e19c2f;
 }
 
-html {
-  font-size: 0.8vw;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -212,27 +208,24 @@ a {
   cursor: pointer;
 }
 
-
-footer{
+footer {
   position: absolute;
   bottom: 0;
   width: 100vw;
   text-align: center;
 }
 
-
-footer img{
+footer img {
   width: 1.75vw;
   cursor: pointer;
   animation: sczalka 1.5s infinite ease-in-out;
-  
 }
 
 @keyframes sczalka {
   0% {
     transform: translateY(0%);
   }
-  50%{
+  50% {
     transform: translateY(15%);
   }
   100% {
@@ -240,18 +233,15 @@ footer img{
   }
 }
 
-footer div{
+footer div {
   background-color: white;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
 @media only screen and (max-width: 1700px) {
-  html {
-    font-size: 1vw;
-  }
   app-root {
     height: 85vh;
   }
@@ -271,7 +261,6 @@ footer div{
     padding: 0;
     justify-content: space-evenly;
   }
-
   .search_container {
     width: 60%;
   }
@@ -280,8 +269,13 @@ footer div{
     margin: 0;
     justify-content: space-evenly;
   }
-  .pointer,
-  .pointer::placeholder {
+  .pointer {
     font-size: 3vw;
+  }
+  .pointer::placeholder {
+    font-size: 1.5vw;
+  }
+  .btn_search {
+    font-size: 2vw !important;
   }
 }
