@@ -14,7 +14,7 @@ export class BrowseComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private repo: BookRepository, private cart: CartService) { }
 
-  searchName: any;
+  searchName: string = "";
   bestseller: boolean = false;
   discount: boolean = false;
   book_status: string = "";
@@ -30,12 +30,15 @@ export class BrowseComponent implements OnInit {
     this.route.queryParams
       .subscribe(params => {
         console.log(params); // { orderby: "price" }
-        this.searchName = params["book"];
+        this.searchName = params["book"] ?? "";
         if (params["bestseller"]) {
           this.bestseller = true;
         }
         if (params["used"]) {
           this.book_status = "used";
+        }
+        if(params["category"]) {
+          this.addCategoryFilter(params["category"]);
         }
       });
 
@@ -74,8 +77,8 @@ export class BrowseComponent implements OnInit {
       });
     }
 
-    if (this.searchName != "") {
-      this.found = this.found.filter(b => b.name.toLocaleLowerCase().indexOf(this.searchName.toLocaleLowerCase()) >= 0);
+    if (!this.searchName && this.searchName != "") {
+      this.found = this.found.filter(b => b.name.toLowerCase().indexOf(this.searchName.toLowerCase()) >= 0);
     }
   }
 
