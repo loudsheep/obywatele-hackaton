@@ -37,7 +37,7 @@ export class BrowseComponent implements OnInit {
         if (params["used"]) {
           this.book_status = "used";
         }
-        if(params["category"]) {
+        if (params["category"]) {
           this.addCategoryFilter(params["category"]);
         }
       });
@@ -48,6 +48,7 @@ export class BrowseComponent implements OnInit {
 
   findBooks() {
     this.found = this.repo.getBooks();
+    console.log(this.book_status);
 
     if (this.minPrice != null) {
       this.found = this.found.filter(b => b.price - b.price * b.discount >= this.minPrice);
@@ -91,6 +92,15 @@ export class BrowseComponent implements OnInit {
       this.categoryFileters.splice(this.categoryFileters.indexOf(category), 1);
     } else {
       this.categoryFileters.push(category);
+    }
+    this.findBooks();
+  }
+
+  changeStatusFilter(status: string) {
+    if (this.book_status == status) {
+      this.book_status = "";
+    } else {
+      this.book_status = status;
     }
     this.findBooks();
   }
