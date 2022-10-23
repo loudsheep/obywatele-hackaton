@@ -128,8 +128,8 @@ main {
 
 .sliding-background {
   background: url("/assets/img/tile2.png") repeat;
-  height: 19000px;
-  width: 17080px;
+  height: calc(100vh + 950px);
+  width: calc(100vw + 859px);
   background-size: auto;
   animation: slide 10s linear infinite;
 }
