@@ -34,7 +34,6 @@ export class BrowseComponent implements OnInit {
 
     this.findBooks();
     this.gatunki = this.repo.getCategories();
-    console.log(this.gatunki);
   }
 
   findBooks() {
@@ -49,8 +48,7 @@ export class BrowseComponent implements OnInit {
     }
 
     if (this.bestseller) {
-      // TODO
-      // this.found = this.found.getBooks().filter(b => b.bestseller);
+      this.found = this.found.filter(b => b.isBestseller);
     }
 
     if (this.discount) {

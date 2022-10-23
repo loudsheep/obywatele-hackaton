@@ -6,5 +6,6 @@ export interface Book {
     description: string,
     price: number,
     discount: number,
-    imgPath: string[]
+    imgPath: string[],
+    isBestseller?: boolean
 }
