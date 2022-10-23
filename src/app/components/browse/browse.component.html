@@ -13,8 +13,8 @@
         <hr />
 
         <p class="f_pad">Gatunek</p>
-        <div class="f_g_container">
-          <div class="f_gatunek f_pad" *ngFor="let gat of gatunki">
+        <div class="f_g_container"  style="min-height: 300px;" >
+          <div class="f_gatunek f_pad"*ngFor="let gat of gatunki">
             <input type="checkbox" (change)="addCategoryFilter(gat)"/>
             <p>{{ gat }}</p>
           </div>
